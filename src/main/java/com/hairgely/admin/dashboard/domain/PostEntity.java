@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class PostEntity {
 	
 	public PostEntity() {}
-	
+
 	public PostEntity(String title, String content) {
 		this.title = title;
 		this.content = content;
@@ -20,7 +20,7 @@ public class PostEntity {
 	private int id;
 
 	private String title;
-	
+
 	private String content;
 	
 	public int getId() {
