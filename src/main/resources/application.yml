@@ -6,8 +6,29 @@ spring.jmx:
    enabled: false
 
 spring.datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:bootexample;MODE=MySQL
+    url: jdbc:mysql://210.120.247.140:3306/coupon?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: coupon
+    password: coupon@DBPW
+spring.jpa:
+    hibernate.ddl-auto: create-drop
+    hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    database: mysql
+    jpa.show-sql: true
+    hibernate.format_sql: TRUE
+# spring conf
+spring:
+    application.name: spring-boot-thymeleaf
+    thymeleaf:
+        cache: false
+
+# logging conf
+logging:
+    level:
+        org.springframework.web: INFO
+        com.example.boot.thymeleaf: DEBUG
+        org.hibernate.SQL: DEBUG
+        org.hibernate.type.descriptor: TRACE
 
 #todo: make sure to always enable security in production
 security:
@@ -26,6 +47,4 @@ info:
     description: ${project.description}
     version: ${project.version}
 
----
-spring.jpa:
-    hibernate.ddl-auto: create-drop
+
