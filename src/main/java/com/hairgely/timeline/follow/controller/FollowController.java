@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class FollowController {
@@ -21,14 +23,16 @@ public class FollowController {
 
     @RequestMapping(value = {"/followview"}, method = RequestMethod.GET)
     public String followview(@ModelAttribute Follow follow) {
-        return "base/item";
+        return "base/follow";
     }
 
     @RequestMapping(value = "/follow", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Person> getFriendsFollow(HttpServletRequest request, HttpServletResponse response) {
-       return  followService.findByIdNotEq(1L);
+    public Map<String, Object> getFriendsFollow(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("itemList", followService.findByIdNotEq(1L));
+       return  result;
     }
 
 

@@ -20,7 +20,7 @@ public class NewsfeedRepositoryImpl implements NewsfeedRepository {
         final QPost post = QPost.post;
         final QFollow follow = QFollow.follow;
 
-        return query.from(post).join(follow).on(post.userId.eq(follow.targetId)).where(follow.id.eq(id)).fetch();
+        return query.from(post).join(follow).on(post.userId.eq(follow.targetId)).where(follow.id.eq(id)).orderBy(post.createDate.desc()).fetch();
     }
 
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorator="common/layout">
+    <head>
+        <title th:text="#{'list'}">Page Title</title>
+        <script th:inline="javascript">
+        /*<![CDATA[*/
+
+            function follow(id){
+
+                 var form = {
+                    id: $('#id').val()
+                };
+                $.ajax({
+                    url: "/follow",
+                    method: "post",
+                    type: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify(form),
+                    success: function(data) {
+                        alert(data);
+                    }
+                });
+
+
+            }
+            function unFollow(id){
+
+                $.ajax({
+                    url: "/follow/"+id,
+                    method: "DELETE",
+                    type: "json",
+                    contentType: "application/json",
+                    success: function(data) {
+                        alert(data);
+                    }
+                });
+
+
+            }
+
+        /*]]>*/
+        </script>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="row">
+                <h3 th:text="#{'list'}"/>
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>CREATE DATE</th>
+                            <th>MODIFY DATE</th>
+                            <th>VERSION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${itemList}">
+                            <td th:text="${item.userId}"/>
+                            <td th:text="${item.name}"/>
+                            <td th:text="${item.follw.createDate}"/>
+                            <td><button onclick="JAVASCRIPT:follow('"+${item.userId}+"');">follow</button><button onclick="JAVASCRIPT:unFollow('"+${item.userId}+"');">unFollow</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

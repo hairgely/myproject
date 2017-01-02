@@ -18,7 +18,7 @@ public class PostController {
 
     @RequestMapping(value = {"/postview"}, method = RequestMethod.GET)
     public String postview(@ModelAttribute Post post) {
-        return "base/item";
+        return "base/post";
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST,  consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})
