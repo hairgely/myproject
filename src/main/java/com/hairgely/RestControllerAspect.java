@@ -16,6 +16,6 @@ public class RestControllerAspect {
 
     @Before("within(com.hairgely..controller.*Controller)")
     public void logBeforeRestCall(JoinPoint pjp) throws Throwable {
-        System.out.println(":::::AOP Before REST call:::::" + pjp);
+        System.out.println("-----Call-----" + pjp);
     }
 }

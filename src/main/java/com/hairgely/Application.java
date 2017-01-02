@@ -15,11 +15,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
-/*
- * This is the main Spring Boot application class. It configures Spring Boot, JPA, Swagger
- */
-
-@EnableAutoConfiguration  // Sprint Boot Auto Configuration
+@EnableAutoConfiguration
 @ComponentScan(basePackages = "com.hairgely")
 public class Application extends WebMvcConfigurerAdapter {
 

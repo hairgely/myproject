@@ -1,4 +1,4 @@
-package com.hairgely.timeline.domain;
+package com.hairgely.timeline.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -29,57 +29,23 @@ public class Post {
     private Date modifyDate;
 
     @NotNull
-    @Column(name = "NAME", length = 45)
-    private String name;
+    @Column(name = "TITLE", length = 45)
+    private String title;
 
-    @Column(name = "COUNT")
-    private Long count;
+    @Column(name = "CONTENTS")
+    private Long contents;
 
-    @Column(name = "PRICE")
-    private BigDecimal price;
-
-    @Size(max = 255)
-    @Column(name = "DESCRIPTION", length = 255)
-    private String description;
+    @Column(name = "USER_ID")
+    private Long userId;
 
     @PrePersist
     public void prePersist() {
         final Date now = new Date();
         setCreateDate(now);
         setModifyDate(now);
+        setUserId(1L);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getCount() {
-        return count;
-    }
-
-    public void setCount(Long count) {
-        this.count = count;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Long getId() {
         return id;
@@ -111,6 +77,30 @@ public class Post {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Long getContents() {
+        return contents;
+    }
+
+    public void setContents(Long contents) {
+        this.contents = contents;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
 }

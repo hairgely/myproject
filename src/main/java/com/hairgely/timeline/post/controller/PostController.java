@@ -1,6 +1,6 @@
 package com.hairgely.timeline.post.controller;
 
-import com.hairgely.timeline.domain.Post;
+import com.hairgely.timeline.entity.Post;
 import com.hairgely.timeline.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +16,8 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @RequestMapping(value = {"/post"}, method = RequestMethod.GET)
-    public String newItem(@ModelAttribute Post post) {
+    @RequestMapping(value = {"/postview"}, method = RequestMethod.GET)
+    public String postview(@ModelAttribute Post post) {
         return "base/item";
     }
 
@@ -32,6 +32,14 @@ public class PostController {
         }catch (Exception e){
             return e.getMessage();
         }
+
+    }
+
+    @RequestMapping(value = "/post/{id}", method = RequestMethod.DELETE, produces = {"application/json", "application/xml"})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public void deletePost(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) {
+        this.postService.deletePost(id);
 
     }
 }
