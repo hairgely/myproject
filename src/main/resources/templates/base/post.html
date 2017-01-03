@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorator="common/layout">
+    <head>
+        <title th:text="#{'form'}">Page Title</title>
+
+        <script th:inline="javascript">
+/*<![CDATA[*/
+
+    function savePost(){
+        var title = $('#title').val();
+        var contents = $('#contents').val();
+
+        if(title == ""){
+            alert("제목을 입력해주세요.");
+        }else{
+             var form = {
+                title: $('#title').val(),
+                contents: $('#contents').val()
+            };
+            $.ajax({
+                url: "/post",
+                method: "post",
+                type: "json",
+                contentType: "application/json",
+                data: JSON.stringify(form),
+                success: function(data) {
+                    alert(data);
+                }
+            });
+        }
+
+
+    }
+
+/*]]>*/
+</script>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="row">
+                <h3>New item</h3>
+                <form id="form" th:action="@{/post}" th:object="${post}" action="#" method="post">
+                    <!--/* name field */-->
+                    <label for="title">Title*</label>
+                    <input th:field="*{title}" th:errorclass="error" type="text" maxlength="45"/>
+                    <small class="error" th:if="${#fields.hasErrors('title')}" th:text="${#fields.errors('title')}"/>
+
+                    <!--/* description field */-->
+                    <label for="contents">Contents</label>
+                    <textarea th:field="*{contents}" maxlength="255"/>
+                    <small class="error" th:if="${#fields.hasErrors('contents')}" th:text="${#fields.errors('contents')}"/>
+
+
+
+                    <!--/* submit
+                    <input type="submit" value="Create" class="button"/>
+                    */-->
+
+                </form>
+
+                <button id="" title="" onclick="javascript:savePost();" >Create</button>
+            </div>
+        </div>
+    </body>
+
+</html>
