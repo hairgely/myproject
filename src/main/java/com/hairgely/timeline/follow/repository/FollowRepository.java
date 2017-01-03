@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface FollowRepository extends CrudRepository<Follow, Long>, JpaRepository<Follow, Long>, FollowDslRepository {
+public interface FollowRepository extends CrudRepository<Follow, Long>, JpaRepository<Follow, Long> {
     public List<Follow> findById(long id);
 }

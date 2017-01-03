@@ -14,12 +14,12 @@ public class Person {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "TARGET_ID")
+    @JoinColumn(name = "TARGET_ID", insertable = false, updatable = false)
     private List<Follow> follw;
 
-    @OneToMany
-    @JoinColumn(name = "USER_ID")
-    private List<Post> post;
+//    @OneToMany
+//    @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+//    private List<Post> post;
 
     public Long getUserId() {
         return userId;
@@ -44,12 +44,12 @@ public class Person {
     public void setFollw(List<Follow> follw) {
         this.follw = follw;
     }
-
-    public List<Post> getPost() {
-        return post;
-    }
-
-    public void setPost(List<Post> post) {
-        this.post = post;
-    }
+//
+//    public List<Post> getPost() {
+//        return post;
+//    }
+//
+//    public void setPost(List<Post> post) {
+//        this.post = post;
+//    }
 }

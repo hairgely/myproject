@@ -21,16 +21,16 @@ public class NewsfeedDslRepositoryImpl extends QueryDslRepositorySupport impleme
     }
 
     @Override
-    public List<Person> findNewsfeedById(final long id) {
-        final JPAQuery<Person> query = new JPAQuery<>(em);
+    public List<Post> findNewsfeedById(final long id) {
+        final JPAQuery<Post> query = new JPAQuery<>(em);
         final QPost post = QPost.post;
         final QFollow follow = QFollow.follow;
         final QPerson person = QPerson.person;
 
-        return query.from(person)
-                        .leftJoin(person.follw, follow)
-                        .leftJoin(person.post, post)
-                        .where(person.userId.eq(id)).fetch();
+        return query.from(post)
+                        .join(post.person, person)
+                        .join(person.follw, follow)
+                        .where(follow.id.eq(id)).fetch();
     }
 
 

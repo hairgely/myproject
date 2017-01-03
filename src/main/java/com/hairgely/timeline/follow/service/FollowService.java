@@ -1,8 +1,6 @@
 package com.hairgely.timeline.follow.service;
 
 import com.hairgely.timeline.entity.Follow;
-import com.hairgely.timeline.entity.Person;
-import com.hairgely.timeline.follow.repository.FollowDslRepository;
 import com.hairgely.timeline.follow.repository.FollowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

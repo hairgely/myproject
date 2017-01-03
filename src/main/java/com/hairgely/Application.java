@@ -26,11 +26,6 @@ public class Application extends WebMvcConfigurerAdapter {
 		SpringApplication.run(applicationClass, args);
 	}
 
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//        return application.sources(applicationClass);
-//    }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");

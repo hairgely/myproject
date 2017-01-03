@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface NewsfeedDslRepository {
-    public List<Person> findNewsfeedById(long id);
+    public List<Post> findNewsfeedById(long id);
 
 }

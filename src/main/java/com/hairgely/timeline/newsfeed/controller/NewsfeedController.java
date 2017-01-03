@@ -1,11 +1,9 @@
 package com.hairgely.timeline.newsfeed.controller;
 
 
-import com.hairgely.timeline.entity.Person;
 import com.hairgely.timeline.entity.Post;
 import com.hairgely.timeline.newsfeed.service.NewsfeedService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +21,7 @@ public class NewsfeedController {
 	@RequestMapping(value = "/newsfeed", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<Person> findNewsfeedById(HttpServletRequest request, HttpServletResponse response) {
+	public List<Post> findNewsfeedById(HttpServletRequest request, HttpServletResponse response) {
 		return this.newsfeedService.findNewsfeedById(1L);
 	}
 

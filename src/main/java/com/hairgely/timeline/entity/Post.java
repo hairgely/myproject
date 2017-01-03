@@ -48,6 +48,18 @@ public class Post {
         setUserId(1L);
     }
 
+    @ManyToOne(optional=false)
+    @JoinColumn(name="USER_ID", insertable = false, updatable = false)
+    private Person person;
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     public Long getId() {
         return id;
     }

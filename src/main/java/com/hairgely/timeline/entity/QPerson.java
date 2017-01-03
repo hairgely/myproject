@@ -23,8 +23,6 @@ public class QPerson extends EntityPathBase<Person> {
 
     public final StringPath name = createString("name");
 
-    public final ListPath<Post, QPost> post = this.<Post, QPost>createList("post", Post.class, QPost.class, PathInits.DIRECT2);
-
     public final NumberPath<Long> userId = createNumber("userId", Long.class);
 
     public QPerson(String variable) {
