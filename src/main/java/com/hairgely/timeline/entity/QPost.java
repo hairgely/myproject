@@ -22,7 +22,7 @@ public class QPost extends EntityPathBase<Post> {
 
     public static final QPost post = new QPost("post");
 
-    public final NumberPath<Long> contents = createNumber("contents", Long.class);
+    public final StringPath contents = createString("contents");
 
     public final DateTimePath<java.util.Date> createDate = createDateTime("createDate", java.util.Date.class);
 

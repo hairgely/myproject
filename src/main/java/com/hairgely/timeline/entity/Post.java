@@ -32,8 +32,10 @@ public class Post {
     @Column(name = "TITLE", length = 45)
     private String title;
 
+
+
     @Column(name = "CONTENTS")
-    private Long contents;
+    private String contents;
 
     @Column(name = "USER_ID")
     private Long userId;
@@ -46,13 +48,20 @@ public class Post {
         setUserId(1L);
     }
 
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public Date getCreateDate() {
@@ -71,14 +80,6 @@ public class Post {
         this.modifyDate = modifyDate;
     }
 
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -87,11 +88,11 @@ public class Post {
         this.title = title;
     }
 
-    public Long getContents() {
+    public String getContents() {
         return contents;
     }
 
-    public void setContents(Long contents) {
+    public void setContents(String contents) {
         this.contents = contents;
     }
 
@@ -102,5 +103,4 @@ public class Post {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-
 }

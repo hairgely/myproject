@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import java.util.List;
 import java.util.Map;
 
-public interface NewsfeedRepository {
-    public List<Post> findPostById(long id);
+public interface NewsfeedDslRepository {
+    public List<Person> findNewsfeedById(long id);
 
 }

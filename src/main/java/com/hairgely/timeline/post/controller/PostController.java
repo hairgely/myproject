@@ -16,11 +16,6 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @RequestMapping(value = {"/postview"}, method = RequestMethod.GET)
-    public String postview(@ModelAttribute Post post) {
-        return "base/post";
-    }
-
     @RequestMapping(value = "/post", method = RequestMethod.POST,  consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody

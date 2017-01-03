@@ -42,12 +42,12 @@ public class Follow {
         this.id = id;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Long getTargetId() {
+        return targetId;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setTargetId(Long targetId) {
+        this.targetId = targetId;
     }
 
     public Long getVersion() {
@@ -58,12 +58,11 @@ public class Follow {
         this.version = version;
     }
 
-    public Long getTargetId() {
-        return targetId;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setTargetId(Long targetId) {
-        this.targetId = targetId;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
-
 }

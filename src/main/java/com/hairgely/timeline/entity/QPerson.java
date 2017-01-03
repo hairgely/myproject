@@ -2,9 +2,7 @@ package com.hairgely.timeline.entity;
 
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
-import com.querydsl.core.types.dsl.EntityPathBase;
-import com.querydsl.core.types.dsl.NumberPath;
-import com.querydsl.core.types.dsl.StringPath;
+import com.querydsl.core.types.dsl.*;
 
 import javax.annotation.Generated;
 
@@ -21,7 +19,11 @@ public class QPerson extends EntityPathBase<Person> {
 
     public static final QPerson person = new QPerson("person");
 
+    public final ListPath<Follow, QFollow> follw = this.<Follow, QFollow>createList("follw", Follow.class, QFollow.class, PathInits.DIRECT2);
+
     public final StringPath name = createString("name");
+
+    public final ListPath<Post, QPost> post = this.<Post, QPost>createList("post", Post.class, QPost.class, PathInits.DIRECT2);
 
     public final NumberPath<Long> userId = createNumber("userId", Long.class);
 

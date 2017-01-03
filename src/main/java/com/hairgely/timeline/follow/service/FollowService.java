@@ -2,6 +2,7 @@ package com.hairgely.timeline.follow.service;
 
 import com.hairgely.timeline.entity.Follow;
 import com.hairgely.timeline.entity.Person;
+import com.hairgely.timeline.follow.repository.FollowDslRepository;
 import com.hairgely.timeline.follow.repository.FollowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,14 @@ public class FollowService {
         return followRepository.save(follow);
     }
 
-    public List<Person> findByIdNotEq(long i) {
-        return followRepository.findByIdNotEq(i);
+    public List<Follow> findByIdNotEq(long i) {
+        return followRepository.findById(i);
     }
 
     public void deleteFollow(Long id) {
-        followRepository.deleteFollow(id);
+        Follow follow = new Follow();
+        follow.setId(1L);
+        follow.setTargetId(id);
+        followRepository.delete(follow);
     }
 }

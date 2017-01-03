@@ -20,11 +20,11 @@ public class NewsfeedController {
 	@Autowired
 	private NewsfeedService newsfeedService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
+	@RequestMapping(value = "/newsfeed", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<Post> findPostById(HttpServletRequest request, HttpServletResponse response) {
-		return this.newsfeedService.findPostById(1L);
+	public List<Person> findNewsfeedById(HttpServletRequest request, HttpServletResponse response) {
+		return this.newsfeedService.findNewsfeedById(1L);
 	}
 
 }

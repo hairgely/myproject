@@ -1,11 +1,8 @@
 package com.hairgely.timeline.newsfeed.service;
 
 import com.hairgely.timeline.entity.Person;
-import com.hairgely.timeline.entity.Post;
-import com.hairgely.timeline.newsfeed.repository.NewsfeedRepository;
+import com.hairgely.timeline.newsfeed.repository.NewsfeedDslRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +11,9 @@ import java.util.List;
 public class NewsfeedService {
 
     @Autowired
-    private NewsfeedRepository newsfeedRepository;
+    private NewsfeedDslRepository newsfeedRepository;
 
-    public List<Post> findPostById(long id) {
-        return newsfeedRepository.findPostById(id);
+    public List<Person> findNewsfeedById(long id) {
+        return newsfeedRepository.findNewsfeedById(id);
     }
 }

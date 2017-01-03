@@ -21,11 +21,6 @@ public class FollowController {
     @Autowired
     private FollowService followService;
 
-    @RequestMapping(value = {"/followview"}, method = RequestMethod.GET)
-    public String followview(@ModelAttribute Follow follow) {
-        return "base/follow";
-    }
-
     @RequestMapping(value = "/follow", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -52,7 +47,7 @@ public class FollowController {
 
     @RequestMapping(value = "/follow/{id}", method = RequestMethod.DELETE, produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteFollow(@PathVariable("targetId") Long id, HttpServletRequest request, HttpServletResponse response) {
+    public void deleteFollow(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) {
         this.followService.deleteFollow(id);
     }
 }

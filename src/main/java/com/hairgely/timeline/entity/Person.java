@@ -1,6 +1,7 @@
 package com.hairgely.timeline.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Person {
@@ -12,10 +13,13 @@ public class Person {
     @Column
     private String name;
 
-    @OneToOne
-    @JoinColumn(name="USER_ID", referencedColumnName = "TARGET_ID")
-    private Follow follw;
+    @OneToMany
+    @JoinColumn(name = "TARGET_ID")
+    private List<Follow> follw;
 
+    @OneToMany
+    @JoinColumn(name = "USER_ID")
+    private List<Post> post;
 
     public Long getUserId() {
         return userId;
@@ -33,4 +37,19 @@ public class Person {
         this.name = name;
     }
 
+    public List<Follow> getFollw() {
+        return follw;
+    }
+
+    public void setFollw(List<Follow> follw) {
+        this.follw = follw;
+    }
+
+    public List<Post> getPost() {
+        return post;
+    }
+
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
 }
